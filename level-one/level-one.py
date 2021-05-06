@@ -1,4 +1,6 @@
-testStr = "abcdabcdabcd"
+testStr = "abaabaaba"
+
+
 def solution(s):
     # Your code here
     mostSlices = 1
@@ -19,18 +21,21 @@ def solution(s):
         stringSlice += 1
     return mostSlices
 
+
 print(solution(testStr))
 
+
 def solution2(s):
-  stringLength = len(s)
-  stringSlice = 1
-  i = stringSlice
-  while i < stringLength:
-    if stringLength % stringSlice != 0 or s[i] != s[i - stringSlice]:
-      stringSlice = i
-    i += 1
-  if stringSlice > stringLength / 2:
-    return 1
-  return stringLength / stringSlice
+    stringLength = len(s)
+    stringSlice = 1
+    i = stringSlice
+    while i < stringLength:
+        if stringLength % stringSlice != 0 or s[i] != s[i - stringSlice]:
+            stringSlice = i + 1
+        i += 1
+    if stringSlice > stringLength / 2:
+        return 1
+    return stringLength / stringSlice
+
 
 print(solution2(testStr))
